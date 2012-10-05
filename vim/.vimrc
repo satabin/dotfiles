@@ -16,3 +16,6 @@ set cursorline
 set wrap
 set linebreak
 set nolist
+
+" TeX flavor
+let g:tex_flavor='latex'
