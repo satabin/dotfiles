@@ -4,3 +4,6 @@
 [submodule "vim/bundle/vim-ocaml"]
 	path = vim/bundle/vim-ocaml
 	url = https://github.com/jrk/vim-ocaml.git
+[submodule "vim/bundle/vim-latex"]
+	path = vim/bundle/vim-latex
+	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
