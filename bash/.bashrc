@@ -8,6 +8,14 @@ case $- in
       *) return;;
 esac
 
+# hack
+if [ -x /usr/bin/tput ]; then
+  COLUMNS=$(tput cols)
+elif [[ -z $COLUMNS ]]; then
+  COLUMNS=80
+fi
+shopt -s checkwinsize
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
