@@ -142,7 +142,7 @@ git_prompt ()
     if git diff --quiet 2>/dev/null >&2; then
       git_color="${c_git_clean}"
     else
-      git_color=${c_git_cleanit_dirty}
+      git_color=${c_git_dirty}
     fi
     echo " [$git_color$git_branch${c_reset}]"
 }
