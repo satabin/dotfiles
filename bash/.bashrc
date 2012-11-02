@@ -147,4 +147,4 @@ git_prompt ()
     echo " [$git_color$git_branch${c_reset}]"
 }
 
-PS1='${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\$ '
+PS1='${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\n\$ '
