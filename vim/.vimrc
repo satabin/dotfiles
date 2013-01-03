@@ -19,3 +19,7 @@ set nolist
 
 " TeX flavor
 let g:tex_flavor='latex'
+
+" no automatic check for scala in syntastic
+let g:syntastic_mode_map = {}
+let g:syntastic_mode_map['passive_filetypes'] = ['scala']
