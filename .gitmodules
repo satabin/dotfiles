@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-mustache"]
 	path = vim/bundle/vim-mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule "vim/bundle/vim-sbt"]
+	path = vim/bundle/vim-sbt
+	url = https://ktvoelker@github.com/ktvoelker/sbt-vim.git
