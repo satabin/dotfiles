@@ -11,3 +11,5 @@ let g:Tex_CompileRule_pdf = 'pdflatex --synctex=1 -interaction=nonstopmode $*'
 let g:Tex_FoldedSections=""
 let g:Tex_FoldedEnvironments=""
 let g:Tex_FoldedMisc=""
+" allow using é
+imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
