@@ -11,6 +11,8 @@ set ai
 set si
 filetype plugin indent on
 set cursorline
+" enable use of the mouse
+set mouse=a
 
 " word wrapping
 set wrap
