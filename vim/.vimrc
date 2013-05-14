@@ -2,7 +2,7 @@
 call pathogen#infect()
 
 syn on
-colorscheme evening
+colorscheme elflord
 set sw=2
 set ts=2
 set expandtab
@@ -13,6 +13,8 @@ filetype plugin indent on
 set cursorline
 " enable use of the mouse
 set mouse=a
+" list completion alternatives
+set wildmode=list:longest
 
 " word wrapping
 set wrap
