@@ -25,9 +25,6 @@
 [submodule "vim/bundle/vim-mustache"]
 	path = vim/bundle/vim-mustache
 	url = git://github.com/juvenn/mustache.vim.git
-[submodule "vim/bundle/vim-sbt"]
-	path = vim/bundle/vim-sbt
-	url = https://ktvoelker@github.com/ktvoelker/sbt-vim.git
 [submodule "vim/bundle/vim-scala"]
 	path = vim/bundle/vim-scala
 	url = git@github.com:derekwyatt/vim-scala.git
