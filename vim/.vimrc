@@ -30,3 +30,4 @@ let g:syntastic_mode_map['passive_filetypes'] = ['scala']
 
 set nofoldenable 
 let g:LatexBox_Folding=0
+let g:LatexBox_viewer = 'zathura'
