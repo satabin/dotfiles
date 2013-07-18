@@ -28,6 +28,22 @@ set nolist
 let g:syntastic_mode_map = {}
 let g:syntastic_mode_map['passive_filetypes'] = ['scala']
 
-set nofoldenable 
+set nofoldenable
 let g:LatexBox_Folding=0
 let g:LatexBox_viewer = 'zathura'
+
+" allow toggling between local and default mode
+function TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+  else
+    set sw=2
+    set ts=2
+    set sts=2
+    set expandtab
+  endif
+endfunction
+nmap <F9> mz:execute TabToggle()<CR>'z
+
