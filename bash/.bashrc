@@ -96,6 +96,7 @@ fi
 alias ll='ls -l'
 alias llh='ls -lh'
 alias la='ls -A'
+alias git='LANG=en_US git'
 #alias l='ls -CF'
 
 # Alias definitions.
