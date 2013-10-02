@@ -47,3 +47,15 @@ function TabToggle()
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
 
+"<F7> for word case toggle & <F8> for word capitalization
+"Normal mode mappings:
+nmap <F7> mzg~iw`z
+nmap <F8> mzgUiw`z
+
+"Insert mode mappings:
+imap <F7> _<Esc>mza<C-Right><Esc>bg~iw`zi<Del>
+imap <F8> _<Esc>mza<C-Right><Esc>bgUiw`zi<Del>
+
+" search and replace word under the cursor
+:nnoremap <Leader>sr :%s/\<<C-r><C-w>\>/
+
