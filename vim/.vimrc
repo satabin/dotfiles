@@ -11,6 +11,7 @@ set ai
 set si
 filetype plugin indent on
 set cursorline
+set cursorcolumn
 " enable use of the mouse
 set mouse=a
 " list completion alternatives
