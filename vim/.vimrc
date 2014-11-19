@@ -1,7 +1,11 @@
+set t_Co=256
+set nocompatible
+set laststatus=2
 " pathogen loads all installed plugins
 call pathogen#infect()
 
 syn on
+set background=dark
 colorscheme elflord
 set sw=2
 set ts=2
@@ -60,3 +64,6 @@ imap <F8> _<Esc>mza<C-Right><Esc>bgUiw`zi<Del>
 " search and replace word under the cursor
 :nnoremap <Leader>sr :%s/\<<C-r><C-w>\>/
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
