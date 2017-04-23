@@ -16,6 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'satabin/hocon-vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 
