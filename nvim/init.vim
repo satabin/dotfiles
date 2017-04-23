@@ -1,8 +1,26 @@
-set t_Co=256
 set nocompatible
+
+filetype off
+
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin('~/.nvim/bundle')
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'satabin/hocon-vim'
+Plugin 'rust-lang/rust.vim'
+
+call vundle#end()
+
+set t_Co=256
 set laststatus=2
-" pathogen loads all installed plugins
-call pathogen#infect()
 
 syn on
 set background=dark
@@ -15,7 +33,6 @@ set ai
 set si
 filetype plugin indent on
 set cursorline
-set cursorcolumn
 " enable use of the mouse
 set mouse=a
 " list completion alternatives
@@ -29,13 +46,8 @@ set nolist
 " TeX flavor
 "let g:tex_flavor='latex'
 
-" no automatic check for scala in syntastic
-let g:syntastic_mode_map = {}
-let g:syntastic_mode_map['passive_filetypes'] = ['scala']
-
 set nofoldenable
 let g:LatexBox_Folding=0
-let g:LatexBox_viewer = 'zathura'
 
 " allow toggling between local and default mode
 function TabToggle()
@@ -69,3 +81,6 @@ let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*
+
+set nohlsearch
+tnoremap <Esc> <C-\><C-n>
