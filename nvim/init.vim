@@ -17,10 +17,16 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'satabin/hocon-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 call vundle#end()
 
 set t_Co=256
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
 set laststatus=2
 
 syn on
@@ -64,6 +70,19 @@ function TabToggle()
   endif
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
+
+function DistractionToggle()
+  :Goyo
+  if exists("g:nodist") && g:nodist == 1
+    :Limelight!
+    let g:nodist=0
+  else
+    :Limelight
+    let g:nodist=1
+  endif
+endfunction
+
+command DF call DistractionToggle()
 
 "<F7> for word case toggle & <F8> for word capitalization
 "Normal mode mappings:
