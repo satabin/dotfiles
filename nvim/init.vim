@@ -71,18 +71,8 @@ function TabToggle()
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
 
-function DistractionToggle()
-  :Goyo
-  if exists("g:nodist") && g:nodist == 1
-    :Limelight!
-    let g:nodist=0
-  else
-    :Limelight
-    let g:nodist=1
-  endif
-endfunction
-
-command DF call DistractionToggle()
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 "<F7> for word case toggle & <F8> for word capitalization
 "Normal mode mappings:
