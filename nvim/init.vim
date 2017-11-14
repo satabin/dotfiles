@@ -55,6 +55,8 @@ set nolist
 
 set nofoldenable
 let g:LatexBox_Folding=0
+let g:LatexBox_build_dir = "build"
+let g:LatexBox_quickfix=2
 
 " allow toggling between local and default mode
 function TabToggle()
@@ -90,7 +92,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/node_modules/*,*.aux,*.fls,*.log,*.out,*.toc
 
 set nohlsearch
 tnoremap <Esc> <C-\><C-n>
