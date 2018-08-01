@@ -152,3 +152,5 @@ DIR="$( cd "$( dirname "$(realpath ${BASH_SOURCE[0]})" )" && pwd )"
 . $DIR/z.sh
 
 PS1='${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\n\$ '
+
+alias ccat='pygmentize -g -O style=colorful'
