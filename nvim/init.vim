@@ -96,3 +96,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/node_modules/*,*.a
 
 set nohlsearch
 tnoremap <Esc> <C-\><C-n>
+
+" use scala indentation for doc comments
+let g:scala_scaladoc_indent = 1
