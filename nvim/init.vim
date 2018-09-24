@@ -19,19 +19,23 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'arcticicestudio/nord-vim'
 
 call vundle#end()
 
-set t_Co=256
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
+"set t_Co=256
+set termguicolors
+let g:nord_italic = 1
+let g:nord_comment_brightness = 15
+"let g:limelight_conceal_ctermfg = 'gray'
+"let g:limelight_conceal_ctermfg = 240
+"let g:limelight_conceal_guifg = 'DarkGray'
+"let g:limelight_conceal_guifg = '#777777'
 set laststatus=2
 
 syn on
-set background=dark
-colorscheme elflord
+colorscheme nord
 set sw=2
 set ts=2
 set expandtab
@@ -89,7 +93,7 @@ imap <F8> _<Esc>mza<C-Right><Esc>bgUiw`zi<Del>
 :nnoremap <Leader>sr :%s/\<<C-r><C-w>\>/
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_theme='nord'
 let g:airline#extensions#tabline#enabled = 1
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/node_modules/*,*.aux,*.fls,*.log,*.out,*.toc
