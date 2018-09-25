@@ -28,3 +28,11 @@ then
 else
   echo "~/.bashrc already exists, skipping link"
 fi
+
+if [ ! -e ~/.config/terminator/config ]
+then
+  ln -s $CURRENT_PATH/terminator/config ~/.config/terminator/config
+  echo "link to ~/.config/terminator/config created"
+else
+  echo "~/.config/terminator/config already exists, skipping link"
+fi
