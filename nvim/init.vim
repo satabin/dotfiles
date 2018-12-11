@@ -21,6 +21,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'vifm/neovim-vifm'
 
 call vundle#end()
 
@@ -28,6 +29,7 @@ call vundle#end()
 set termguicolors
 let g:nord_italic = 1
 let g:nord_comment_brightness = 15
+let g:nord_uniform_diff_background = 1
 "let g:limelight_conceal_ctermfg = 'gray'
 "let g:limelight_conceal_ctermfg = 240
 "let g:limelight_conceal_guifg = 'DarkGray'
