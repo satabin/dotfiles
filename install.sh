@@ -36,3 +36,12 @@ then
 else
   echo "~/.config/terminator/config already exists, skipping link"
 fi
+
+if [ ! -e ~/.config/vifm ]
+then
+  ln -s $CURRENT_PATH/vifm ~/.config/vifm
+  echo "link to ~/.config/vifm created"
+else
+  echo "~/.config/vifm already exists, skipping link"
+fi
+
