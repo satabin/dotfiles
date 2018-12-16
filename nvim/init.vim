@@ -105,3 +105,5 @@ tnoremap <Esc> <C-\><C-n>
 
 " use scala indentation for doc comments
 let g:scala_scaladoc_indent = 1
+
+command Explore :e %:p:h
