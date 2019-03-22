@@ -23,6 +23,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'vifm/neovim-vifm'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
