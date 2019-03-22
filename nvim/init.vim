@@ -22,13 +22,13 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'vifm/neovim-vifm'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 call vundle#end()
 
 "set t_Co=256
 set termguicolors
 let g:nord_italic = 1
-let g:nord_comment_brightness = 15
 let g:nord_uniform_diff_background = 1
 "let g:limelight_conceal_ctermfg = 'gray'
 "let g:limelight_conceal_ctermfg = 240
@@ -41,7 +41,7 @@ colorscheme nord
 set sw=2
 set ts=2
 set expandtab
-set nu
+set nu rnu
 set ai
 set si
 filetype plugin indent on
@@ -98,7 +98,7 @@ let g:airline_powerline_fonts = 0
 let g:airline_theme='nord'
 let g:airline#extensions#tabline#enabled = 1
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/node_modules/*,*.aux,*.fls,*.log,*.out,*.toc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/out/*,*/node_modules/*,*.aux,*.fls,*.log,*.out,*.toc,*/output/*
 
 set nohlsearch
 tnoremap <Esc> <C-\><C-n>
