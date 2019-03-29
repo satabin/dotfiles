@@ -88,6 +88,19 @@ autocmd! User GoyoLeave Limelight!
 nmap <F7> mzg~iw`z
 nmap <F8> mzgUiw`z
 
+" make search case sensitive only if search apttern contains an upper case
+" letter
+set ignorecase
+set smartcase
+
+" allow hidden buffer
+set hidden
+
+set shortmess=atI
+
+" reload files changed outside vim
+set autoread
+
 "Insert mode mappings:
 imap <F7> _<Esc>mza<C-Right><Esc>bg~iw`zi<Del>
 imap <F8> _<Esc>mza<C-Right><Esc>bgUiw`zi<Del>
