@@ -24,6 +24,7 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'vifm/neovim-vifm'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-surround'
+Plugin 'neoclide/coc.nvim'
 
 call vundle#end()
 
@@ -121,3 +122,30 @@ tnoremap <Esc> <C-\><C-n>
 let g:scala_scaladoc_indent = 1
 
 command Explore :e %:p:h
+
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+command Reformat :call CocAction('format')
+
+command Doc :call <SID>show_documentation()
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nmap <leader>rn <Plug>(coc-rename)
+
+set completeopt-=preview
