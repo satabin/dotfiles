@@ -1,0 +1,15 @@
+{
+  "suggest.minTriggerInputLength": 2,
+  "suggest.echodocSupport": true,
+  "languageserver": {
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    },
+    "digestif": {
+      "command": "digestif",
+      "filetypes": ["tex", "plaintex", "context"]
+    }
+  }
+}

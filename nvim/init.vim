@@ -11,7 +11,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'satabin/hocon-vim'
@@ -25,6 +25,7 @@ Plugin 'vifm/neovim-vifm'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-surround'
 Plugin 'neoclide/coc.nvim'
+Plugin 'Shougo/echodoc.vim'
 
 call vundle#end()
 
@@ -37,7 +38,9 @@ let g:nord_uniform_diff_background = 1
 "let g:limelight_conceal_guifg = 'DarkGray'
 "let g:limelight_conceal_guifg = '#777777'
 set laststatus=2
+set noshowmode
 
+filetype plugin on
 syn on
 colorscheme nord
 set sw=2
@@ -46,7 +49,6 @@ set expandtab
 set nu rnu
 set ai
 set si
-filetype plugin indent on
 set cursorline
 " enable use of the mouse
 set mouse=a
@@ -62,9 +64,9 @@ set nolist
 "let g:tex_flavor='latex'
 
 set nofoldenable
-let g:LatexBox_Folding=0
-let g:LatexBox_build_dir = "build"
-let g:LatexBox_quickfix=2
+let g:vimtex_fold_enabled=0
+let g:vimtex_latexmk_build_dir='build'
+let g:vimtex_quickfix_mode=2
 
 " allow toggling between local and default mode
 function TabToggle()
@@ -133,6 +135,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+inoremap <silent><expr> <c-n> coc#refresh()
 
 command Reformat :call CocAction('format')
 
@@ -146,6 +149,24 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
 nmap <leader>rn <Plug>(coc-rename)
 
 set completeopt-=preview
+set shortmess+=c
