@@ -11,14 +11,14 @@ if [ ! -e $NVIM_DIR ]
 then
   ln -s $CURRENT_PATH/nvim $NVIM_DIR
   echo "link to $NVIM_DIR created"
-  if [ ! -e $NVIM_DIR/bundle/Vundle.vim ]
-  then
-    echo "Bootstrapping Vundle..."
-    mkdir -p $NVIM_DIR/bundle
-    git clone https://github.com/VundleVim/Vundle.vim.git $NVIM_DIR/bundle/Vundle.vim
-  fi
 else
   echo "$NVIM_DIR already exists, skipping link"
+fi
+if [ ! -e ~/.local/share/nvim/site/autoload/plug.vim ]
+then
+  echo "Bootstrapping vim-plug..."
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 if [ ! -e ~/.bashrc ]

@@ -2,32 +2,30 @@ set nocompatible
 
 filetype off
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+call plug#begin('~/.local/share/nvim/site/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'lervag/vimtex'
-Plugin 'kien/ctrlp.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'satabin/hocon-vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'cespare/vim-toml'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'vifm/neovim-vifm'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'tpope/vim-surround'
-Plugin 'neoclide/coc.nvim'
-Plugin 'Shougo/echodoc.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'derekwyatt/vim-scala'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'lervag/vimtex'
+Plug 'kien/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'satabin/hocon-vim'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'arcticicestudio/nord-vim'
+Plug 'vifm/neovim-vifm'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'Shougo/echodoc.vim'
 
-call vundle#end()
+call plug#end()
 
 "set t_Co=256
 set termguicolors
