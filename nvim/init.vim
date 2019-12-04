@@ -130,9 +130,15 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> sgd :sp<CR><Plug>(coc-definition)
+nmap <silent> vgd :vsp<CR><Plug>(coc-definition)
+nmap <silent> tgd :vsp<CR><Plug>(coc-definition)<C-W>T
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> sgr :sp<CR><Plug>(coc-references)
+nmap <silent> vgr :vsp<CR><Plug>(coc-references)
+nmap <silent> tgr :vsp<CR><Plug>(coc-references)<C-W>T
 inoremap <silent><expr> <c-n> coc#refresh()
 
 command Reformat :call CocAction('format')
