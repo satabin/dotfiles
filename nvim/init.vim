@@ -24,6 +24,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Shougo/echodoc.vim'
+Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 
@@ -174,3 +175,11 @@ nmap <leader>rn <Plug>(coc-rename)
 
 set completeopt-=preview
 set shortmess+=c
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+highlight link EchoDocFloat Pmenu
+
+let g:vista_default_executive = 'coc'
+let g:vista#renderer#enable_icon = 1

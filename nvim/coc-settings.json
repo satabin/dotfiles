@@ -1,6 +1,7 @@
 {
   "suggest.minTriggerInputLength": 2,
   "suggest.echodocSupport": true,
+  "suggest.enablePreselect": false,
   "languageserver": {
     "metals": {
       "command": "metals-vim",
