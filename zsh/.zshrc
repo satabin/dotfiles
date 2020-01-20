@@ -63,3 +63,5 @@ DIR="$( cd "$( dirname "$(realpath ${(%):-%N})" )" && pwd )"
 . $DIR/../z/z.sh
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
