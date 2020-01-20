@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # create the symbolic links to the files in this repository
 
 cd `dirname $0`
@@ -21,12 +19,29 @@ then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-if [ ! -e ~/.bashrc ]
-then
-  ln -s $CURRENT_PATH/bash/.bashrc ~/.bashrc
-  echo "link to ~/.bashrc created"
-else
-  echo "~/.bashrc already exists, skipping link"
+if [ -n "$ZSH_VERSION" ]; then
+  echo "zsh detected"
+  if [ ! -e ~/.local/share/pure ]
+  then
+    echo "installing pure prompt"
+    git clone https://github.com/sindresorhus/pure.git ~/.local/share/pure
+  fi
+  if [ ! -e ~/.zshrc ]
+  then
+    ln -s $CURRENT_PATH/zsh/.zshrc ~/.zshrc
+    echo "link to ~/.zshrc created"
+  else
+    echo "~/.zshrc already exists, skipping link"
+  fi
+elif [ -n "$BASH_VERSION" ]; then
+  echo "bash detected"
+  if [ ! -e ~/.bashrc ]
+  then
+    ln -s $CURRENT_PATH/bash/.bashrc ~/.bashrc
+    echo "link to ~/.bashrc created"
+  else
+    echo "~/.bashrc already exists, skipping link"
+  fi
 fi
 
 if [ ! -e ~/.config/terminator/config ]

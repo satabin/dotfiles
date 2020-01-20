@@ -149,7 +149,7 @@ git_prompt ()
 }
 
 DIR="$( cd "$( dirname "$(realpath ${BASH_SOURCE[0]})" )" && pwd )"
-. $DIR/z.sh
+. $DIR/../z/z.sh
 
 PS1='${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\n\$ '
 
