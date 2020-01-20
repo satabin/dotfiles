@@ -42,6 +42,9 @@ elif [ -n "$BASH_VERSION" ]; then
   else
     echo "~/.bashrc already exists, skipping link"
   fi
+else
+  echo "could not determine shell"
+  exit 1
 fi
 
 if [ ! -e ~/.config/terminator/config ]
