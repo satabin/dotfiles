@@ -4,7 +4,7 @@ fpath+=("$HOME/.local/share/pure")
 autoload -Uz promptinit
 promptinit
 
-setopt histignorealldups sharehistory
+setopt histignorealldups sharehistory histignorespace
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
