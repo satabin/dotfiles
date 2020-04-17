@@ -139,6 +139,9 @@ nmap <silent> tgd :vsp<CR><Plug>(coc-definition)<C-W>T
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gs  :<C-u>CocCommand metals.go-to-super-method<cr>
+nmap <silent> vgs  :vsp<CR>:<C-u>CocCommand metals.go-to-super-method<cr>
+nmap <silent> sgs  :sp<CR>:<C-u>CocCommand metals.go-to-super-method<cr>
 nmap <silent> sgr :sp<CR><Plug>(coc-references)
 nmap <silent> vgr :vsp<CR><Plug>(coc-references)
 nmap <silent> tgr :vsp<CR><Plug>(coc-references)<C-W>T
