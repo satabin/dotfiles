@@ -27,6 +27,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
