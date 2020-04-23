@@ -3,11 +3,6 @@
   "suggest.echodocSupport": true,
   "suggest.enablePreselect": false,
   "languageserver": {
-    "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
-    },
     "digestif": {
       "command": "digestif",
       "filetypes": ["tex", "plaintex", "context"]
