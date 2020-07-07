@@ -160,6 +160,15 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+command Quickfix :CocAction('coc-fix-current')<CR>
+
+" Trigger for code actions
+" Make sure `"codeLens.enable": true` is set in your coc config
+nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
+command Action :call CocActionAsync('codeLensAction')
+
 " Notify coc.nvim that <enter> has been pressed.
 " Currently used for the formatOnType feature.
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()

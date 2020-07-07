@@ -8,5 +8,7 @@
       "filetypes": ["tex", "plaintex", "context"]
     }
   },
-  "metals.javaHome": "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+  "metals.enableStripMarginOnTypeFormatting": true,
+  "coc.preferences.formatOnType": true,
+  "codeLens.enable": true
 }
