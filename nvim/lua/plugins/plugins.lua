@@ -1,0 +1,39 @@
+vim.cmd [[packadd packer.nvim]]
+
+return require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
+  use 'tpope/vim-fugitive'
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+  use 'derekwyatt/vim-scala'
+  use 'terryma/vim-multiple-cursors'
+  use 'lervag/vimtex'
+  use 'kien/ctrlp.vim'
+  use 'airblade/vim-gitgutter'
+  use 'satabin/hocon-vim'
+  use 'rust-lang/rust.vim'
+  use 'cespare/vim-toml'
+  use 'junegunn/goyo.vim'
+  use 'junegunn/limelight.vim'
+  use 'jiangmiao/auto-pairs'
+  use 'arcticicestudio/nord-vim'
+  use 'vifm/neovim-vifm'
+  use 'jeffkreeftmeijer/vim-numbertoggle'
+  use 'tpope/vim-surround'
+  use { 'neoclide/coc.nvim', branch = 'release' }
+  use 'Shougo/echodoc.vim'
+  use 'ryanoasis/vim-devicons'
+  use 'hashivim/vim-terraform'
+  use 'juliosueiras/terraform-lsp'
+  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+	use 'junegunn/fzf.vim'
+  --use {
+  --  'hrsh7th/nvim-cmp',
+  --  requires = {
+  --    { "hrsh7th/cmp-nvim-lsp" },
+  --    { "hrsh7th/cmp-vsnip" },
+  --    { "hrsh7th/vim-vsnip" },
+  --  }
+  --}
+  --use { 'scalameta/nvim-metals', requires = { 'nvim-lua/plenary.nvim' } }
+end)
