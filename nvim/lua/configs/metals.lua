@@ -14,24 +14,24 @@ vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
 vim.opt_global.shortmess:remove("F"):append("c")
 
 -- LSP mappings
-map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>")
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-map("n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
+map("n", "gds", [[<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>]])
+map("n", "<space>s", [[<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>]])
 map("n", "<leader>cl", [[<cmd>lua vim.lsp.codelens.run()<CR>]])
 map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
 map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>ws", '<cmd>lua require"metals".hover_worksheet()<CR>')
-map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
-map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
-map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
-map("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
-map("n", "[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
-map("n", "]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
+map("n", "<space>a", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
+map("n", "<space>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
+map("n", "<space>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
+map("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
+map("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
+map("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 
 -- completion related settings
 -- This is similiar to what I use
@@ -53,6 +53,20 @@ cmp.setup({
     -- also using the snippet stuff. So keep in mind that if you remove
     -- snippets you need to remove this select
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<Tab>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ["<S-Tab>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
   }),
 
 })
