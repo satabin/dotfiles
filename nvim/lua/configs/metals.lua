@@ -26,9 +26,7 @@ map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>ws", '<cmd>lua require"metals".hover_worksheet()<CR>')
-map("n", "<space>a", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
-map("n", "<space>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
-map("n", "<space>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
+map("n", "<space>a", [[<cmd>lua require("telescope.builtin").diagnostics()<CR>]]) -- all workspace diagnostics
 map("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
 map("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 map("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
@@ -78,7 +76,11 @@ local metals_config = require("metals").bare_config()
 
 metals_config.settings = {
   showImplicitArguments = true,
+  showImplicitConversionsAndClasses = true,
+  showInferredType = true,
 }
+
+metals_config.init_options.statusBarProvider = "on"
 
 -- Autocmd that will actually be in charging of starting the whole thing
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
