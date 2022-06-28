@@ -26,7 +26,7 @@ map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>ws", '<cmd>lua require"metals".hover_worksheet()<CR>')
-map("n", "<space>a", [[<cmd>lua require("telescope.builtin").diagnostics()<CR>]]) -- all workspace diagnostics
+map("n", "<space>a", [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical'})<CR>]]) -- all workspace diagnostics
 map("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
 map("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 map("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
@@ -51,14 +51,14 @@ cmp.setup({
     -- also using the snippet stuff. So keep in mind that if you remove
     -- snippets you need to remove this select
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = function(fallback)
+    ["<C-n>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       else
         fallback()
       end
     end,
-    ["<S-Tab>"] = function(fallback)
+    ["<C-p>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
