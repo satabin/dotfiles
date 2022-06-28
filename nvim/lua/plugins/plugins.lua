@@ -13,18 +13,14 @@ return require('packer').startup(function()
   use 'satabin/hocon-vim'
   use 'rust-lang/rust.vim'
   use 'cespare/vim-toml'
-  use 'junegunn/goyo.vim'
   use 'junegunn/limelight.vim'
   use 'jiangmiao/auto-pairs'
-  use 'arcticicestudio/nord-vim'
+  use { 'arcticicestudio/nord-vim', branch = 'main' }
   use 'vifm/neovim-vifm'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'tpope/vim-surround'
-  use { 'neoclide/coc.nvim', branch = 'release' }
   use 'Shougo/echodoc.vim'
   use 'ryanoasis/vim-devicons'
-  use 'hashivim/vim-terraform'
-  use 'juliosueiras/terraform-lsp'
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
 	use 'junegunn/fzf.vim'
   use {
