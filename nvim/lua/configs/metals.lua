@@ -11,7 +11,6 @@ end
 
 -- global
 vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
-vim.opt_global.shortmess:remove("F"):append("c")
 
 -- LSP mappings
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
@@ -24,7 +23,7 @@ map("n", "<space>s", [[<cmd>lua require("telescope.builtin").lsp_dynamic_workspa
 map("n", "gs", [[<cmd>lua vim.lsp.codelens.run()<CR>]])
 map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
 map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>ws", '<cmd>lua require"metals".hover_worksheet()<CR>')
 map("n", "<space>a", [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical'})<CR>]]) -- all workspace diagnostics
@@ -32,7 +31,8 @@ map("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagn
 map("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 map("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 
-vim.cmd([[command Reformat :lua vim.lsp.buf.formatting()]])
+vim.cmd([[command Reformat :lua vim.lsp.buf.format { async = true }]])
+vim.cmd([[command Action :lua vim.lsp.buf.code_action()]])
 vim.cmd([[command OR :MetalsOrganizeImports]])
 
 -- completion related settings
