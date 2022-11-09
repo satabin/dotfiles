@@ -55,6 +55,14 @@ else
   echo "~/.config/terminator/config already exists, skipping link"
 fi
 
+if [ ! -e ~/.config/alacritty ]
+then
+  ln -s $CURRENT_PATH/alacritty ~/.config/alacritty
+  echo "link to ~/.config/alacritty/ created"
+else
+  echo "~/.config/alacritty/ already exists, skipping link"
+fi
+
 if [ ! -e ~/.config/vifm ]
 then
   ln -s $CURRENT_PATH/vifm ~/.config/vifm
