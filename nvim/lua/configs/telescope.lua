@@ -15,12 +15,6 @@ telescope.setup {
     path_display = { "truncate" },
   },
   extensions = {
-    fzf = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
-      case_mode = 'smart_case',
-    },
     ['ui-select'] = {
       require('telescope.themes').get_dropdown { layout_config = { prompt_position = 'top' } },
     },
@@ -29,3 +23,4 @@ telescope.setup {
 
 -- Extensions
 telescope.load_extension 'ui-select'
+telescope.load_extension 'fzf'
