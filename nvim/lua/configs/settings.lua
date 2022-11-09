@@ -1,11 +1,8 @@
 vim.cmd([[set termguicolors]])
-vim.cmd([[let g:nord_italic = 1]])
-vim.cmd([[let g:nord_uniform_diff_background = 1]])
 vim.cmd([[set laststatus=2]])
 vim.cmd([[set noshowmode]])
 vim.cmd([[filetype plugin on]])
 vim.cmd([[syn on]])
-vim.cmd([[colorscheme nord]])
 vim.cmd([[set sw=2]])
 vim.cmd([[set ts=2]])
 vim.cmd([[set expandtab]])
@@ -44,10 +41,6 @@ vim.cmd([[set shortmess=atI]])
 -- reload files changed outside vim
 vim.cmd([[set autoread]])
 
-vim.cmd([[let g:airline_powerline_fonts = 1]])
-vim.cmd([[let g:airline_theme='nord']])
-vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])
-
 vim.cmd([[set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/out/*,*/node_modules/*,*.aux,*.fls,*.log,*.out,*.toc,*/output/*]])
 
 vim.cmd([[set nohlsearch]])
@@ -72,6 +65,6 @@ augroup end
 ]])
 
 -- Configuration for vim-scala
-vim.cmd([[au BufRead,BufNewFile *.sbt set filetype=scala]])
+vim.cmd([[au BufRead,BufNewFile *.sbt set filetype=sbt]])
 vim.cmd([[let g:echodoc#enable_at_startup = 1]])
 vim.cmd([[let g:echodoc#type = 'floating']])
