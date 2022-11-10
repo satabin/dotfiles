@@ -1,5 +1,5 @@
-require("impatient")
+require('impatient')
 
-require("plugins")
+require('plugins')
 
-require("configs.settings")
+require('configs.settings')

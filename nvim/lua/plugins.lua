@@ -9,6 +9,10 @@ return require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     config = [[ require('configs.lualine') ]]
   }
+  use {
+    'neovim/nvim-lspconfig',
+    config = [[ require('configs.lsp') ]]
+  }
   use 'derekwyatt/vim-scala'
   use 'terryma/vim-multiple-cursors'
   use 'lervag/vimtex'
@@ -39,7 +43,8 @@ return require('packer').startup(function()
       { "hrsh7th/vim-vsnip" },
       { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-buffer" },
-    }
+    },
+    config = [[ require('configs.cmp') ]]
   }
   use {
     'scalameta/nvim-metals',
@@ -60,6 +65,10 @@ return require('packer').startup(function()
       use { 'softinio/scaladex.nvim' }
     },
     config = [[ require('configs.telescope') ]]
+  }
+  use {
+    'ThePrimeagen/harpoon',
+    config = [[ require('configs.harpoon') ]]
   }
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
 end)

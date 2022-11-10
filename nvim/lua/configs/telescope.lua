@@ -12,11 +12,18 @@ map('n', '<leader>si', require('telescope').extensions.scaladex.scaladex.search,
 
 telescope.setup {
   defaults = {
-    path_display = { "truncate" },
+    path_display = { "smart" },
   },
   extensions = {
     ['ui-select'] = {
-      require('telescope.themes').get_dropdown { layout_config = { prompt_position = 'top' } },
+      require('telescope.themes').get_dropdown {
+        initial_mode = 'normal',
+        layout_strategy = 'cursor',
+        layout_config = { prompt_position = 'top' }
+      },
+    },
+    harpoon = {
+      initial_mode = 'normal',
     },
   },
 }
@@ -24,3 +31,4 @@ telescope.setup {
 -- Extensions
 telescope.load_extension 'ui-select'
 telescope.load_extension 'fzf'
+telescope.load_extension 'harpoon'
