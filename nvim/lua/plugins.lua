@@ -29,7 +29,6 @@ return require('packer').startup(function()
   use 'vifm/neovim-vifm'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'tpope/vim-surround'
-  use 'Shougo/echodoc.vim'
   use 'ryanoasis/vim-devicons'
   use {
     'nvim-tree/nvim-web-devicons',

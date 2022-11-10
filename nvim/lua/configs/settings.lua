@@ -66,5 +66,3 @@ augroup end
 
 -- Configuration for vim-scala
 vim.cmd([[au BufRead,BufNewFile *.sbt set filetype=sbt]])
-vim.cmd([[let g:echodoc#enable_at_startup = 1]])
-vim.cmd([[let g:echodoc#type = 'floating']])
