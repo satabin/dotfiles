@@ -1,3 +1,13 @@
+require('mason').setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "sumneko_lua", "rust_analyzer" }
+})
+require('mason-lspconfig').setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {}
+  end
+}
+
 local api = vim.api
 local cmd = vim.cmd
 
@@ -24,8 +34,10 @@ map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
 map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-map("n", "<space>a", [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical', initial_mode='normal'})<CR>]]) -- all workspace diagnostics
-map("n", "<space>d", [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical', bufnr=0, initial_mode='normal'})<CR>]]) -- buffer diagnostics
+map("n", "<space>a",
+  [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical', initial_mode='normal'})<CR>]]) -- all workspace diagnostics
+map("n", "<space>d",
+  [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical', bufnr=0, initial_mode='normal'})<CR>]]) -- buffer diagnostics
 map("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev { wrap = true }<CR>")
 map("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next { wrap = true }<CR>")
 
@@ -50,3 +62,19 @@ api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
   group = lsp_group,
 })
 
+
+require('lspconfig')['sumneko_lua'].setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
+        },
+      },
+    },
+  }
+}

@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   sources = {
     { name = "nvim_lsp" },
     { name = "vsnip" },
@@ -17,7 +18,10 @@ cmp.setup({
     -- is no vim docs, but you can't have select = true here _unless_ you are
     -- also using the snippet stuff. So keep in mind that if you remove
     -- snippets you need to remove this select
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true
+    }),
     ["<C-n>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()

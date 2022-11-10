@@ -11,7 +11,15 @@ return require('packer').startup(function()
   }
   use {
     'neovim/nvim-lspconfig',
+    requires = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+    },
     config = [[ require('configs.lsp') ]]
+  }
+  use {
+    'simrat39/rust-tools.nvim',
+    config = [[ require('configs.rust-tools') ]]
   }
   use 'derekwyatt/vim-scala'
   use 'terryma/vim-multiple-cursors'
@@ -70,4 +78,5 @@ return require('packer').startup(function()
     config = [[ require('configs.harpoon') ]]
   }
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+  use { 'nvim-lua/popup.nvim' }
 end)
