@@ -5,12 +5,6 @@ require('lualine').setup {
     theme = 'nord',
   },
   tabline = {
-    lualine_a = {'buffers'},
+    lualine_a = { 'buffers' },
   },
-  sections = {
-    lualine_c = {
-      ...,
-      'lsp_progress'
-    }
-  }
 }

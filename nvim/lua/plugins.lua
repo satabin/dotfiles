@@ -11,10 +11,6 @@ return require('packer').startup(function()
   }
   use {
     'neovim/nvim-lspconfig',
-    requires = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-    },
     config = [[ require('configs.lsp') ]]
   }
   use {
@@ -31,13 +27,13 @@ return require('packer').startup(function()
   use 'junegunn/limelight.vim'
   use 'jiangmiao/auto-pairs'
   use {
-    'shaunsingh/nord.nvim',
+    'arcticicestudio/nord-vim',
     config = [[ require('configs.nord') ]]
   }
   use 'vifm/neovim-vifm'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'tpope/vim-surround'
-  use 'ryanoasis/vim-devicons'
+  --use 'ryanoasis/vim-devicons'
   use {
     'nvim-tree/nvim-web-devicons',
     config = [[ require('configs.devicons_setup') ]]
@@ -77,6 +73,6 @@ return require('packer').startup(function()
     'ThePrimeagen/harpoon',
     config = [[ require('configs.harpoon') ]]
   }
-  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+  use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use { 'nvim-lua/popup.nvim' }
 end)

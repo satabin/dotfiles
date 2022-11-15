@@ -1,15 +1,4 @@
-require('mason').setup()
-require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "rust_analyzer" }
-})
-require('mason-lspconfig').setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {}
-  end
-}
-
 local api = vim.api
-local cmd = vim.cmd
 
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
@@ -23,9 +12,11 @@ end
 vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
 
 -- LSP mappings
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+map("n", "gd", [[<cmd>lua require("telescope.builtin").lsp_definitions({initial_mode='normal'})<CR>]])
+map("n", "vgd", [[<cmd>lua require("telescope.builtin").lsp_definitions({initial_mode='normal', jump_type='vsplit'})<CR>]])
+map("n", "sgd", [[<cmd>lua require("telescope.builtin").lsp_definitions({initial_mode='normal', jump_type='split'})<CR>]])
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+map("n", "gi", [[<cmd>lua require("telescope.builtin").lsp_implementations()<CR>]])
 map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 map("n", "<space>o", [[<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>]])
 map("n", "<space>s", [[<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>]])
@@ -40,6 +31,7 @@ map("n", "<space>d",
   [[<cmd>lua require("telescope.builtin").diagnostics({layout_strategy='vertical', bufnr=0, initial_mode='normal'})<CR>]]) -- buffer diagnostics
 map("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev { wrap = true }<CR>")
 map("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next { wrap = true }<CR>")
+map("n", "<leader>e", "<cmd> lua vim.diagnostic.open_float(nil, { focusable = false })<CR>")
 
 vim.cmd([[command Reformat :lua vim.lsp.buf.format { async = true }]])
 vim.cmd([[command Action :lua vim.lsp.buf.code_action()]])
