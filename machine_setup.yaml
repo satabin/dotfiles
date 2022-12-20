@@ -1,0 +1,49 @@
+default_shell: zsh
+
+parallel: true
+
+tasks:
+  neovim:
+    commands:
+      - symlink:
+          src: "./nvim"
+          target: "~/.config/nvim"
+  tmux:
+    commands:
+      - clone:
+          url: "https://github.com/tmux-plugins/tpm"
+          target: "~/.tmux/plugins/tpm"
+      - symlink:
+          src: "./tmux/.tmux.conf"
+          target: "~"
+  vifm:
+    commands:
+      - symlink:
+          src: "./vifm"
+          target: "~/.config/vifm"
+  alacritty:
+    commands:
+      - symlink:
+          src: "./alacritty"
+          target: "~/.config/alacritty"
+  zshrc:
+    commands:
+      - run:
+          parallel: true
+          env:
+            CRATE_INSTALL: /tmp/crate.sh
+          commands:
+            - "wget -O $CRATE_INSTALL https://rossmacarthur.github.io/install/crate.sh"
+            - "chmod +x $CRATE_INSTALL"
+            - "$CRATE_INSTALL --repo rossmacarthur/sheldon --to ~/.local/bin"
+            - "curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
+            - "curl -sS https://starship.rs/install.sh | sh"
+      - symlink:
+          src: "./sheldon"
+          target: "~/.config/sheldon"
+      - symlink:
+          src: "./zsh/.zshrc"
+          target: "~"
+      - symlink:
+          src: "./zsh/config"
+          target: "~/.config/zsh"
