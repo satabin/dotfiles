@@ -14,8 +14,12 @@ $rust\
 $toml\
 $cmd_duration\
 $line_break\
-$os\
 $character"""
+
+[username]
+show_always = true
+style_root = "red"
+style_user = "green"
 
 [directory]
 style = "blue"
