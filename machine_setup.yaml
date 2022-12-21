@@ -26,7 +26,7 @@ tasks:
       - symlink:
           src: "./alacritty"
           target: "~/.config/alacritty"
-  zshrc:
+  shell:
     commands:
       - run:
           parallel: true
@@ -37,10 +37,13 @@ tasks:
             - "chmod +x $CRATE_INSTALL"
             - "$CRATE_INSTALL --repo rossmacarthur/sheldon --to ~/.local/bin"
             - "curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
-            - "curl -sS https://starship.rs/install.sh | sh"
+            - "curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin --yes"
       - symlink:
           src: "./sheldon"
           target: "~/.config/sheldon"
+      - symlink:
+          src: "./starship/starship.toml"
+          target: "~/.config"
       - symlink:
           src: "./zsh/.zshrc"
           target: "~"
