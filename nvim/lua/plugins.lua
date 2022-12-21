@@ -25,6 +25,7 @@ return require('packer').startup(function()
       require('configs.lsp')
       require('configs.lua')
       require('configs.ts')
+      require('configs.toml')
     ]]
   }
   use {
