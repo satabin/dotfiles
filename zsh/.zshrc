@@ -17,6 +17,4 @@ eval "$(sheldon source)"
 eval "$(starship init zsh)"
 
 # Load Zoxide (ie, `z`)
-eval "$(zoxide init zsh --cmd cd --hook pwd)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
