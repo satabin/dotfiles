@@ -1,5 +1,5 @@
 # local specific things, might not exist
-source "$HOME/.config/zsh/local.sh" 2> /dev/null
+source "$HOME/.config/zsh/local.zsh" 2> /dev/null
 
 # Load GPG agent and emulated SSH agent
 export GPG_TTY="${TTY}"

@@ -1,3 +1,6 @@
+vim.opt.termguicolors = true
+vim.opt.laststatus = 2
+
 vim.cmd([[set termguicolors]])
 vim.cmd([[set laststatus=2]])
 vim.cmd([[set noshowmode]])
