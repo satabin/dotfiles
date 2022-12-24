@@ -1,71 +1,76 @@
 vim.opt.termguicolors = true
 vim.opt.laststatus = 2
+vim.opt.showmode = false
 
-vim.cmd([[set termguicolors]])
-vim.cmd([[set laststatus=2]])
-vim.cmd([[set noshowmode]])
-vim.cmd([[filetype plugin on]])
-vim.cmd([[syn on]])
-vim.cmd([[set sw=2]])
-vim.cmd([[set ts=2]])
-vim.cmd([[set expandtab]])
-vim.cmd([[set nu rnu]])
-vim.cmd([[set ai]])
-vim.cmd([[set si]])
-vim.cmd([[set cursorline]])
-vim.cmd([[set mouse=a]])
-vim.cmd([[set wildmode=list:longest]])
-vim.cmd([[set wrap]])
-vim.cmd([[set linebreak]])
-vim.cmd([[set nolist]])
-vim.cmd([[set nofoldenable]])
-vim.cmd([[let g:vimtex_fold_enabled=0]])
-vim.cmd([[let g:vimtex_latexmk_build_dir='build']])
-vim.cmd([[let g:vimtex_quickfix_mode=2]])
+vim.opt.sw = 2
+vim.opt.ts = 2
+vim.opt.expandtab = true
 
--- <F7> for word case toggle & <F8> for word capitalization
--- Normal mode mappings:
-vim.cmd([[nmap <F7> mzg~iw`z]])
-vim.cmd([[nmap <F8> mzgUiw`z]])
--- Insert mode mappings:
-vim.cmd([[imap <F7> _<Esc>mza<C-Right><Esc>bg~iw`zi<Del>]])
-vim.cmd([[imap <F8> _<Esc>mza<C-Right><Esc>bgUiw`zi<Del>]])
+vim.opt.nu = true
+vim.opt.rnu = true
+vim.opt.ai = true
+vim.opt.si = true
+vim.opt.cursorline = true
+vim.opt.mouse = 'a'
+vim.opt.wildmode = 'list:longest'
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.list = false
+vim.opt.foldenable = false
+
+vim.g.vimtex_fold_enabled = 0
+vim.g.vimtex_latexmk_build_dir = 'build'
+vim.g.vimtex_quickfix_mode = 2
+
+-- <F7> for word case toggle
+vim.api.nvim_set_keymap('n', '<F7>', 'mzg~iw`z', { noremap = true, silent = true })
 
 -- make search case sensitive only if search apttern contains an upper case
 -- letter
-vim.cmd([[set ignorecase]])
-vim.cmd([[set smartcase]])
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- allow hidden buffer
-vim.cmd([[set hidden]])
+vim.opt.hidden = true
 
-vim.cmd([[set shortmess=atI]])
+vim.opt.shortmess = "atI"
 
 -- reload files changed outside vim
-vim.cmd([[set autoread]])
+vim.opt.autoread = true
 
-vim.cmd([[set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*/out/*,*/node_modules/*,*.aux,*.fls,*.log,*.out,*.toc,*/output/*]])
+vim.opt.wildignore:append {
+  '*/tmp/*',
+  '*.so',
+  '*.swp',
+  '*.zip',
+  '*.class',
+  '*/target/*',
+  '*/out/*',
+  '*/node_modules/*',
+  '*.aux',
+  '*.fls',
+  '*.log',
+  '*.out',
+  '*.toc',
+  '*/output/*'
+}
 
-vim.cmd([[set nohlsearch]])
-vim.cmd([[tnoremap <Esc> <C-\><C-n>]])
+vim.opt.hlsearch = false
 
 -- use scala indentation for doc comments
-vim.cmd([[let g:scala_scaladoc_indent = 1]])
+vim.g.scala_scaladoc_indent = 1
 
-vim.cmd([[command Explore :e %:p:h]])
+vim.api.nvim_create_user_command('Explore', ':e %:p:h', { nargs = 0 })
 -- disable netrw
-vim.cmd([[let g:loaded_netrw = 1]])
-vim.cmd([[let g:loaded_netrwPlugin = 1]])
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 -- replace netrw by vifm
-vim.cmd([[let g:vifm_replace_netrw = 1]])
-vim.cmd([[let g:vifm_replace_netrw_cmd = "Vifm"]])
+vim.g.vifm_replace_netrw = 1
+vim.g.vifm_replace_netrw_cmd = 'Vifm'
 
-vim.cmd([[
-augroup packer_user_config
- autocmd!
- autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]])
-
--- Configuration for vim-scala
-vim.cmd([[au BufRead,BufNewFile *.sbt set filetype=sbt]])
+local packer = vim.api.nvim_create_augroup('packer_user_config', { clear = true })
+vim.api.nvim_create_autocmd( 'BufWritePost', {
+  pattern = 'plugins.lua',
+  group = packer,
+  command = 'source <afile> | PackerCompile',
+})
