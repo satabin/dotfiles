@@ -10,5 +10,6 @@ HISTFILE=~/.zsh_history
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey '^l' autosuggest-accept
 
 PATH="$PATH:$HOME/.local/bin"
