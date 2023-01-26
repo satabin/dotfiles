@@ -50,3 +50,8 @@ tasks:
       - symlink:
           src: "./zsh/config"
           target: "~/.config/zsh"
+  nix:
+    commands:
+      - symlink:
+          src: "./nix"
+          target: "~/.config/nix"
