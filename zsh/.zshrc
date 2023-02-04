@@ -18,3 +18,5 @@ eval "$(starship init zsh)"
 
 # Load Zoxide (ie, `z`)
 eval "$(zoxide init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -26,6 +26,7 @@ return require('packer').startup(function()
       require('configs.lua')
       require('configs.ts')
       require('configs.toml')
+      require('configs.texlab')
     ]]
   }
   use {

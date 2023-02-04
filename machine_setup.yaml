@@ -48,6 +48,9 @@ tasks:
           src: "./zsh/.zshrc"
           target: "~"
       - symlink:
+          src: "./bash/.bashrc"
+          target: "~"
+      - symlink:
           src: "./zsh/config"
           target: "~/.config/zsh"
   nix:
