@@ -48,7 +48,7 @@ return require('packer').startup(function()
     'Maan2003/lsp_lines.nvim',
     config = [[ require('configs.lsp-lines') ]]
   }
-  use 'terryma/vim-multiple-cursors'
+  use 'mg979/vim-visual-multi'
   use 'lervag/vimtex'
   use 'airblade/vim-gitgutter'
   use 'satabin/hocon-vim'
