@@ -1,2 +1,3 @@
 zsh/config/local.zsh
 vifm/vifminfo.json
+nvim/lua/.luarc.json
