@@ -58,7 +58,7 @@ return require('packer').startup(function()
   use 'junegunn/limelight.vim'
   use 'jiangmiao/auto-pairs'
   use {
-    'arcticicestudio/nord-vim',
+    'nordtheme/vim',
     config = [[ require('configs.nord') ]]
   }
   use 'vifm/neovim-vifm'
