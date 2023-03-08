@@ -63,7 +63,11 @@ return require('packer').startup(function()
   }
   use 'vifm/neovim-vifm'
   use 'jeffkreeftmeijer/vim-numbertoggle'
-  use 'tpope/vim-surround'
+  use {
+    'kylechui/nvim-surround',
+    tag = '*',
+    config = [[ require('configs.surround') ]]
+  }
   --use 'ryanoasis/vim-devicons'
   use {
     'nvim-tree/nvim-web-devicons',
