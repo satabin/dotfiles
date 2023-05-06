@@ -73,7 +73,7 @@ colors:
     white: '#aeb3bb'
 
 shell:
-  program: /bin/zsh
+  program: zsh
   args:
     - -l
     - -c
