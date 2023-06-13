@@ -21,6 +21,9 @@ local opts = {
         lens = {
           enable = true,
         },
+        procMacro = {
+          enable = true,
+        },
         inlayHints = {
           lifetimeElisionHints = {
             enable = "always",

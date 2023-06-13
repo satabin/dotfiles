@@ -74,3 +74,5 @@ vim.api.nvim_create_autocmd( 'BufWritePost', {
   group = packer,
   command = 'source <afile> | PackerCompile',
 })
+
+vim.api.nvim_set_hl(0,"@text.strike",{strikethrough=true})

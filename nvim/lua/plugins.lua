@@ -21,13 +21,19 @@ return require('packer').startup(function()
   }
   use {
     'neovim/nvim-lspconfig',
+    requires = {
+      { 'folke/neodev.nvim' }
+    },
     config = [[
+      require('configs.neodev')
       require('configs.lsp')
       require('configs.lua')
       require('configs.ts')
       require('configs.toml')
       require('configs.texlab')
       require('configs.nix')
+      require('configs.dhall')
+      require('configs.bash')
     ]]
   }
   use {
@@ -87,15 +93,21 @@ return require('packer').startup(function()
   use {
     'scalameta/nvim-metals',
     requires = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
+      'rcarriga/nvim-dap-ui',
     },
-    config = [[ require('configs.metals') ]]
+    config = [[
+    require('configs.dap')
+    require('configs.metals')
+    ]]
   }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-ui-select.nvim' },
+      { 'nvim-telescope/telescope-dap.nvim' },
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
@@ -112,7 +124,26 @@ return require('packer').startup(function()
   use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use { 'nvim-lua/popup.nvim' }
 
-  use { 'whonore/Coqtail' }
+  use {
+    'whonore/Coqtail',
+    setup = [[ require('configs.coqtail_setup') ]]
+  }
+
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  }
+
+  use {
+    'nvim-neorg/neorg',
+    run = ':Neorg sync-parsers',
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-neorg/neorg-telescope' },
+    config = [[ require('configs.neorg') ]]
+  }
 
   if packer_bootstrap then
     require('packer').sync()

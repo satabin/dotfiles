@@ -13,12 +13,14 @@ metals_config.capabilities = handlers.capabilities
 
 metals_config.on_attach = function(client, bufnr)
   handlers.on_attach(client, bufnr)
+  metals.setup_dap()
 end
 
 metals_config.settings = {
   showImplicitArguments = true,
   showImplicitConversionsAndClasses = true,
   showInferredType = true,
+  testUserInterface = "Test Explorer",
 }
 
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })

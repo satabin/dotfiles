@@ -34,6 +34,7 @@ cmp.setup({
     { name = "vsnip" },
     { name = "path" },
     { name = "buffer" },
+    { name = "neorg" },
   },
   snippet = {
     expand = function(args)
