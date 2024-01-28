@@ -1,4 +1,4 @@
-**Deperecated, I use home manager now: https://github.com/satabin/managed-home**
+**Deprecated, I use home manager now: https://github.com/satabin/managed-home**
 
 
 # My dot files -  new version
